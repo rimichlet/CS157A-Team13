@@ -19,23 +19,33 @@ public class FilterServlet extends HttpServlet{
 	
 		HttpSession session = req.getSession();
 		session.removeAttribute("resultProfileID");
-		String[] filters = new String[2];
+		String[] filters = (String[])session.getAttribute("filters");
+		//String[] filterInit = {"all", "all"};
+
+
 		int[] resultProfileID = new int[0];
-		filters[0] = req.getParameter("onlineOpt");
-		filters[1] = req.getParameter("classFilter");
-		res.getWriter().println("onlineOpt = " + filters[0]);
-		res.getWriter().println("classFilter = " + filters[1]);
 		
+		/*
 		boolean noFilter = true;
-		String sql = "SELECT profileID FROM profile";
 		for (String s : filters) {
 			if (!s.equals("all")) {
 				noFilter=false;
 			}
 		}
+		
+		String sql = "SELECT profileID FROM profile";
 		if (noFilter==false) {
 			sql = sqlGenerate(filters);
 		}
+		*/
+
+		//res.getWriter().println("onlineOpt = " + filters[0]);
+		//res.getWriter().println("classFilter = " + filters[1]);
+		
+		
+		String sql = sqlGenerate(filters);
+
+
 		
 		try {
 			Connection conn = MySQLConn.getMySQLConnection();
@@ -45,11 +55,13 @@ public class FilterServlet extends HttpServlet{
 			res.getWriter().print(e.getMessage());
 		}
 		session.setAttribute("resultProfileID", resultProfileID);
-		
+		//res.sendRedirect("filterView.jsp");
+		/*
 		res.getWriter().println(sql);
 		for (int id : resultProfileID) {
 			res.getWriter().println(id);
 		}
+		*/
 		
 	}
 	

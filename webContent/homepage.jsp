@@ -11,6 +11,8 @@
 	if(session.getAttribute("user") == null){
 		response.sendRedirect("login.jsp");
 	}
+	String[] filterInit = {"all", "all"};
+	session.setAttribute("filters", filterInit);
 %>
 Welcome ${user.username}
 <br>

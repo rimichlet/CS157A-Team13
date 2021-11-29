@@ -8,7 +8,8 @@
 </head>
 <body>
 <h1>Search for Students</h1>
-<form action="filter" method="get">
+<a href="homepage.jsp">Home</a>
+<form action="setfilter" method="get">
   <label for="onlineOpt">Online Option</label>
   <select name="onlineOpt" id="onlineOpt">
   	<option value="all">All</option>
@@ -33,5 +34,15 @@
   <br><br>
   <input type="submit" value="Submit">
 </form>
+ <%
+	RequestDispatcher rd2 = request.getRequestDispatcher("filter");
+	rd2.include(request, response);
+	int[] displayedProfiles = (int[])session.getAttribute("resultProfileID");
+	if (displayedProfiles != null){
+		for (int id : displayedProfiles){
+			out.println(id + "<br>");	
+		}	
+	}  
+	%>
 </body>
 </html>
