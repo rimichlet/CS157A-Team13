@@ -17,6 +17,7 @@ Welcome ${user.username}
 You are now logged in
 <br>
 <a href="myInfoView.jsp">My Info</a>
+<a href="filterView.jsp">Search for Students</a><br>
 <form action="logout">
 <input type="submit" value="Logout">
 </form>

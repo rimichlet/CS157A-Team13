@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import cs157aProject.model.Account;
+import cs157aProject.model.Course;
 import cs157aProject.model.StudentAccount;
 
 public class DBUtils {
@@ -161,6 +162,24 @@ public class DBUtils {
 		
 		String[] result = new String[al.size()];
 		
+		for (int i = 0; i < result.length; i++) {
+			result[i] = al.get(i);
+		}
+		return result;
+	}
+	
+	//use with sql query generated in FilterServlet, give profileIDs
+	public static int[] filterWithQuery(Connection conn, String sql) throws SQLException{
+		
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);
+		
+		ArrayList<Integer> al = new ArrayList<Integer>();
+		while(rs.next()) {
+			al.add(rs.getInt("profileID"));
+		}
+		
+		int[] result = new int[al.size()];
 		for (int i = 0; i < result.length; i++) {
 			result[i] = al.get(i);
 		}
