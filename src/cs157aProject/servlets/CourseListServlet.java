@@ -14,7 +14,7 @@ import cs157aProject.MySQLConn;
 
 @WebServlet(urlPatterns = {"/courseList"})
 public class CourseListServlet extends HttpServlet{
-
+//testing git
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		
 		HttpSession session = req.getSession();
