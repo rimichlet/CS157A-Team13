@@ -29,6 +29,8 @@
 	}
 
 %>
+<br>
+<a href="checkCourse.jsp">Update Enrollments</a>
 <h2>Name</h2>
 Your name is ${studentAccount.studentName} 
 <h2>Campus</h2>
@@ -37,8 +39,7 @@ ${campus}
 Your accountID is ${user.accountID}
 <br>
 <a href="homepage.jsp">Home</a>
-<br>
-<a href="checkCourse.jsp">Update Enrollments</a>
+
 <form action="logout">
 <input type="submit" value="Logout">
 </form>

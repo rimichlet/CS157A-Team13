@@ -67,8 +67,12 @@ public class FilterServlet extends HttpServlet{
 	
 	//get all the ids
 	public String sqlGenerate(String[] filters) {
-		String sql = "SELECT profileID FROM profile";
+		String sql = "SELECT profile.profileID FROM profile";
 		
+		
+		if (!filters[0].equals("all")) {
+			sql = sql + " WHERE profile.profileID in (SELECT preferences.profileID FROM preferences WHERE preferences.onlineOption = '" + filters[0] + "')";
+		}
 		//filter by class
 		if (!filters[1].equals("all")) {
 			int courseID = 0;
@@ -79,7 +83,14 @@ public class FilterServlet extends HttpServlet{
 			catch (Exception e){
 				System.out.println(e.getMessage());
 			}
-			sql = sql + " WHERE profileID in (SELECT studentID FROM enrollment WHERE courseID = " + courseID + ")";
+			if (!filters[0].equals("all")) {
+				sql = sql + " AND ";
+			}
+			else
+			{
+				sql = sql + " WHERE ";
+			}
+			sql = sql + " profile.profileID in (SELECT studentID FROM enrollment WHERE courseID = " + courseID + ")";
 		}
 		return sql;
 	}
