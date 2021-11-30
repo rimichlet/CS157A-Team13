@@ -25,6 +25,13 @@ background-color: lightblue;
 ${viewProfileOnline }
 <h2>Location</h2>
 ${viewProfileLocation}
+<h2>Interests</h2>
+<%
+	String[] print2 = (String[])session.getAttribute("viewProfileInterests");
+	for (int i = 0; i < print2.length; i++){
+		out.println(print2[i] + "<br>");
+	}
+%>
 <br>
 <a href="filterView.jsp">Back to Search</a>
 </body>

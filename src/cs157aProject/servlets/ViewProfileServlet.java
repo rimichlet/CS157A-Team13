@@ -25,6 +25,7 @@ public class ViewProfileServlet extends HttpServlet{
 		session.removeAttribute("viewProfileName");
 		session.removeAttribute("viewProfileDescription");
 		session.removeAttribute("viewProfileEnrollments");
+		session.removeAttribute("viewProfileInterests");
 		session.removeAttribute("viewProfileOnline");
 		session.removeAttribute("viewProfileLocation");
 		
@@ -50,6 +51,13 @@ public class ViewProfileServlet extends HttpServlet{
 			Profile pro = DBUtils.findProfile(conn, profileID);
 			String vpd = pro.getDescription();
 			
+			int[] interests = DBUtils.findInterests(conn, profileID);
+			String[] vpi = new String[interests.length];
+			for (int i=0; i < interests.length; i++) {
+				vpi[i] = DBUtils.findInterestName(conn, interests[i]);
+			}
+			
+			session.setAttribute("viewProfileInterests", vpi);
 			session.setAttribute("viewProfileName", vpn);
 			session.setAttribute("viewProfileDescription", vpd);
 			session.setAttribute("viewProfileEnrollments", vpe);
