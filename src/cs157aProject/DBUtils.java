@@ -153,6 +153,26 @@ public class DBUtils {
 		return result;
 	}
 	
+	public static int[] findInterests(Connection conn, int profileID) throws SQLException{
+		String sql = "SELECT interestID FROM interestedin WHERE profileID = " + profileID;
+		
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);
+		
+		ArrayList<Integer> interests = new ArrayList<Integer>();
+		while (rs.next()) {
+			interests.add(rs.getInt("interestID"));
+		}
+		
+		int result[] = new int[interests.size()];
+		
+		for (int i = 0; i < interests.size(); i++) {
+			result[i] = interests.get(i);
+		}
+		
+		return result;
+	}
+	
 	//find profileID from accountID
 	public static int findProfileID(Connection conn, int accountID) throws SQLException{
 		String sql = "SELECT profileID FROM has WHERE accountID = " + accountID;
@@ -188,6 +208,18 @@ public class DBUtils {
 		
 		if (rs.next()) {
 			return rs.getString("course_name");
+		}
+		return null;
+	}
+	
+	public static String findInterestName(Connection conn, int interestID) throws SQLException{
+		String sql = "SELECT * FROM interests WHERE interestID = " + interestID;
+		
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);
+		
+		if (rs.next()) {
+			return rs.getString("interest_name");
 		}
 		return null;
 	}

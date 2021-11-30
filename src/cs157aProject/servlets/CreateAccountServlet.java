@@ -28,7 +28,8 @@ public class CreateAccountServlet extends HttpServlet{
 		try {
 			Connection conn = MySQLConn.getMySQLConnection();
 			DBUtils.createStudentAccount(conn, username, password, name, campus);
-			res.getWriter().println("account created");
+			//res.getWriter().println("<h2>Account created</h2><br><a href=\"login.jsp\">Back</a>");
+			res.sendRedirect("login.jsp");
 		}
 		catch (Exception e) {
 			e.printStackTrace();

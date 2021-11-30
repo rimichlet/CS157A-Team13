@@ -19,6 +19,13 @@
 	
 %>
 <h1>My Info</h1>
+<h2>Name</h2>
+Your name is ${studentAccountUser.studentName} 
+<h2>Description</h2>
+${userDescription}
+<h2>Campus</h2>
+${user_campus}
+<br>
 <h2>Enrollments</h2>
 <%
 	String[] list = (String[])session.getAttribute("user_course_names");
@@ -31,13 +38,21 @@
 %>
 <br>
 <a href="checkCourse.jsp">Update Enrollments</a>
-<h2>Name</h2>
-Your name is ${studentAccountUser.studentName} 
-<h2>Campus</h2>
-${user_campus}
-<h2>AccountID</h2>
-Your accountID is ${user.accountID}
-<br>
+<h2>Preferences</h2>
+<h3>Online</h3>
+${userOnlineOpt}<br>
+<h3>Location</h3>
+${userLocation }<br>
+<h2>Interests</h2>
+<%
+	String[] list2 = (String[])session.getAttribute("userInterestsNames");
+	if (list2 != null){
+		for (String s : list2){
+			out.println(s + "<br>");
+		}
+	}
+
+%>
 <a href="homepage.jsp">Home</a>
 
 <form action="logout">
