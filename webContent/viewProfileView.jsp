@@ -6,6 +6,11 @@
 <meta charset="ISO-8859-1">
 <title>View Profile</title>
 </head>
+<style>
+body{
+background-color: lightblue;
+}
+</style>
 <body>
 <h1>${viewProfileName}</h1>
 <p>${viewProfileDescription }</p>

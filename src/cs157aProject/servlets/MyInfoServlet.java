@@ -60,6 +60,7 @@ public class MyInfoServlet extends HttpServlet {
 				interestNames[i] = DBUtils.findInterestName(conn, interests[i]);
 			}
 			
+			session.setAttribute("userProfileID", profileID);
 			session.setAttribute("userInterestsNames", interestNames);
 			session.setAttribute("userOnlineOpt", pre.getOnlineOpt());
 			session.setAttribute("userLocation", pre.getLocation());

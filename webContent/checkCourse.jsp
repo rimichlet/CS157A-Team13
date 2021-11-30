@@ -3,6 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+body{
+background-color: lightblue;
+}
+</style>
 <title>Check Classes that You Enrolled</title>
 </head>
    <body> 

@@ -4,8 +4,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Check Interests</title>
 </head>
+<style>
+body{
+background-color: lightblue;
+}
+</style>
 <body>
 
 <form action = "updateInterests" method = "POST">

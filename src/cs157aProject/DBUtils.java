@@ -388,4 +388,11 @@ public class DBUtils {
 		return null;
 		
 	}
+	
+	public static void updateDescription(Connection conn, int profileID, String desc) throws SQLException{
+		String sql = "UPDATE profile SET description = '" + desc + "' WHERE profileID = " + profileID;
+		
+		Statement stmt = conn.createStatement();
+		stmt.executeUpdate(sql);
+	}
 }

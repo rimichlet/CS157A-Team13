@@ -6,6 +6,11 @@
 <meta charset="ISO-8859-1">
 <title>Search for Students</title>
 </head>
+<style>
+body{
+background-color: lightblue;
+}
+</style>
 <body>
 <h1>Search for Students</h1>
 <a href="homepage.jsp">Home</a>
