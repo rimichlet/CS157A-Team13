@@ -57,7 +57,7 @@
 			out.println("<td>" + displayedProfiles[i] + "</td>");
 			out.println("<td>" + displayedNames[i] + "</td>");
 			out.println("<td>" + displayedOnline[i] + "</td>");
-			out.println("<td><form action=\"viewProfile?profileID=" + displayedProfiles[i] + "\"><input type=\"submit\" value=\"View\"></form><td>");
+			out.println("<td><form action=\"viewProfile?profileID=" + displayedProfiles[i] + "\" method = \"post\"><input type=\"submit\" value=\"View\"></form><td>");
 			out.println("</tr>");
 		}	
 	}  
