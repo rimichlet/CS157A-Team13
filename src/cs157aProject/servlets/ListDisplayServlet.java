@@ -14,7 +14,7 @@ import cs157aProject.MySQLConn;
 import cs157aProject.model.Preference;
 import cs157aProject.model.StudentAccount;
 
-@WebServlet(urlPatterns = {"/getNames"}) //*************************************
+@WebServlet(urlPatterns = {"/getNames"})
 public class ListDisplayServlet extends HttpServlet
 {
 

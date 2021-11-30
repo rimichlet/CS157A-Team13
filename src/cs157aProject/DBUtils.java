@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import cs157aProject.model.Account;
 import cs157aProject.model.Course;
 import cs157aProject.model.Preference;
+import cs157aProject.model.Profile;
 import cs157aProject.model.StudentAccount;
 
 public class DBUtils {
@@ -215,5 +216,21 @@ public class DBUtils {
 			return p;
 		}
 		return null;
+	}
+	
+	public static Profile findProfile(Connection conn, int profileID) throws SQLException{
+		String sql = "SELECT * FROM profile WHERE profileID = " + profileID;
+		
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);
+		
+		if (rs.next()) {
+			Profile pro = new Profile();
+			pro.setProfileID(profileID);
+			pro.setDescription(rs.getString("description"));
+			return pro;
+		}
+		return null;
+		
 	}
 }
