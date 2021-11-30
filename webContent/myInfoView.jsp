@@ -73,7 +73,7 @@ background-color: lightblue;
 
 </table>
 
-
+<a href="changePreferences.jsp">Edit preferences</a>
 <h2>Interests</h2>
 <%
 	String[] list2 = (String[])session.getAttribute("userInterestsNames");

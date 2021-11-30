@@ -395,4 +395,11 @@ public class DBUtils {
 		Statement stmt = conn.createStatement();
 		stmt.executeUpdate(sql);
 	}
+	
+	public static void updatePreferences(Connection conn, int profileID, String online, String location) throws SQLException{
+		String sql = "UPDATE preferences SET onlineOption = '" + online + "', location = '" + location + "' WHERE profileID = " + profileID;
+		
+		Statement stmt = conn.createStatement();
+		stmt.executeUpdate(sql);
+	}
 }
