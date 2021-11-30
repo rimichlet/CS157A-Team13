@@ -236,6 +236,18 @@ public class DBUtils {
 		return 0;
 	}
 	
+	public static int findInterestID(Connection conn, String interestName) throws SQLException{
+		String sql = "SELECT * FROM interests WHERE interest_name = '" + interestName + "'";
+		
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);
+		
+		if (rs.next()) {
+			return rs.getInt("interestID");
+		}
+		return 0;
+	}
+	
 	
 	public static void updateEnrolls(Connection conn, int[] courseID, int studentID, int campusID) throws SQLException{
 		String sql = "DELETE FROM enrollment WHERE studentID = " + studentID;
@@ -255,6 +267,20 @@ public class DBUtils {
 		
 	}
 	
+	public static void updateInterests(Connection conn, int[] interestID, int profileID) throws SQLException{
+		String sql = "DELETE FROM interestedin WHERE profileID = " + profileID;
+		
+		Statement stmt = conn.createStatement();
+		stmt.executeUpdate(sql);
+		
+		PreparedStatement pst = conn.prepareStatement("INSERT INTO interestedIn VALUES(?,?)");
+		for (int id : interestID) {
+			pst.setInt(1, profileID);
+			pst.setInt(2, id);
+			pst.executeUpdate();
+		}
+	}
+	
 	public static String[] getCourseList(Connection conn) throws SQLException{
 		String sql = "SELECT course_name FROM course";
 		
@@ -264,6 +290,25 @@ public class DBUtils {
 		
 		while (rs.next()) {
 			al.add(rs.getString("course_name"));
+		}
+		
+		String[] result = new String[al.size()];
+		
+		for (int i = 0; i < result.length; i++) {
+			result[i] = al.get(i);
+		}
+		return result;
+	}
+	
+	public static String[] getInterestList(Connection conn) throws SQLException{
+		String sql = "SELECT interest_name FROM interests";
+		
+		ArrayList<String> al = new ArrayList<String>();
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);
+		
+		while (rs.next()) {
+			al.add(rs.getString("interest_name"));
 		}
 		
 		String[] result = new String[al.size()];

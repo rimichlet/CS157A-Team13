@@ -53,6 +53,9 @@ ${userLocation }<br>
 	}
 
 %>
+
+<a href="checkInterest.jsp">Update Interests</a>
+<br>
 <a href="homepage.jsp">Home</a>
 
 <form action="logout">
