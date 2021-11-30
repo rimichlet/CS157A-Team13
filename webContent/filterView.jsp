@@ -10,7 +10,7 @@
 <h1>Search for Students</h1>
 <a href="homepage.jsp">Home</a>
 <form action="setfilter" method="get">
-  <label for="onlineOpt">Online Option</label>
+  <label for="onlineOpt">Online</label>
   <select name="onlineOpt" id="onlineOpt">
   	<option value="all">All</option>
     <option value="yes">Yes</option>

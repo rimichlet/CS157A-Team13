@@ -21,7 +21,7 @@
 <h1>My Info</h1>
 <h2>Enrollments</h2>
 <%
-	String[] list = (String[])session.getAttribute("course_names");
+	String[] list = (String[])session.getAttribute("user_course_names");
 	if (list != null){
 		for (String s : list){
 			out.println(s + "<br>");
@@ -32,9 +32,9 @@
 <br>
 <a href="checkCourse.jsp">Update Enrollments</a>
 <h2>Name</h2>
-Your name is ${studentAccount.studentName} 
+Your name is ${studentAccountUser.studentName} 
 <h2>Campus</h2>
-${campus}
+${user_campus}
 <h2>AccountID</h2>
 Your accountID is ${user.accountID}
 <br>

@@ -18,12 +18,16 @@ public class CreateAccountServlet extends HttpServlet{
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
+		String campus = req.getParameter("campus");
+		String name = req.getParameter("name");
 		
-		res.getWriter().println("Entered username: " + username + "Entered password: " + password);
+		
+		
+		//res.getWriter().println("Entered username: " + username + "Entered password: " + password);
 		
 		try {
 			Connection conn = MySQLConn.getMySQLConnection();
-			DBUtils.createAccount(conn, username, password);
+			DBUtils.createStudentAccount(conn, username, password, name, campus);
 			res.getWriter().println("account created");
 		}
 		catch (Exception e) {

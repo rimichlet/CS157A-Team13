@@ -35,9 +35,9 @@ public class MyInfoServlet extends HttpServlet {
 				courseNames[i] = DBUtils.findCourseName(conn, enrollments[i]);
 			}
 			
-			session.setAttribute("course_names", courseNames);
-			session.setAttribute("campus", campus_name);
-			session.setAttribute("studentAccount", studentUser);
+			session.setAttribute("user_course_names", courseNames);
+			session.setAttribute("user_campus", campus_name);
+			session.setAttribute("studentAccountUser", studentUser);
 			
 			//res.sendRedirect("myInfoView.jsp");
 			//out.println("accountID = " + user.getAccountID());

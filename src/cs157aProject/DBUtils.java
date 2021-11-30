@@ -42,6 +42,51 @@ public class DBUtils {
 		stmt2.executeUpdate(sql);
 	}
 	
+	public static void createStudentAccount(Connection conn, String username, String password, String name, String campus) throws SQLException {
+		String sql = "SELECT max(accountID) AS maxID FROM account;";
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);
+		int id = 0;
+		if (rs.next()) {
+			id = rs.getInt("maxID") + 1;
+		}
+		
+		sql = "INSERT INTO account VALUES (" + id + ", '" + username + "', '" + password + "');";
+		stmt = conn.createStatement();
+		stmt.executeUpdate(sql);
+		
+		int campusID = campusLookup(conn, campus);
+		sql = "INSERT INTO belongsto VALUES(" + id + ", " + campusID + ");";
+		stmt = conn.createStatement();
+		stmt.executeUpdate(sql);
+		
+		sql = "SELECT max(profileID) as maxPID FROM has;";
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery(sql);
+		int pid = 0;
+		if (rs.next()) {
+			pid = rs.getInt("maxPID") + 1;
+		}
+		
+		
+		sql = "INSERT INTO has VALUES(" + pid + ", " + id + ");";
+		stmt = conn.createStatement();
+		stmt.executeUpdate(sql);
+		
+		sql = "INSERT INTO profile (profileID) VALUES(" + pid + "); ";
+		stmt = conn.createStatement();
+		stmt.executeUpdate(sql);
+		
+		sql = "INSERT INTO studentaccount VALUES(" + id + ", '" + name + "', " + campusID + ");";
+		stmt = conn.createStatement();
+		stmt.executeUpdate(sql);
+		
+		sql = "INSERT INTO preferences (profileID , time) VALUES(" + pid + ", 'some time'); ";
+		stmt = conn.createStatement();
+		stmt.executeUpdate(sql);
+		
+	}
+	
 	//by accountId
 	public static StudentAccount findStudentAccount(Connection conn, int accountID) throws SQLException{
 		String sql = "SELECT * FROM studentaccount WHERE accountID = " + accountID;
@@ -71,6 +116,20 @@ public class DBUtils {
 			return rs.getString("campus_name");
 		}
 		return null;
+	}
+	
+	//by campus name
+	public static int campusLookup(Connection conn, String campusName) throws SQLException
+	{
+		String sql = "SELECT * FROM campus WHERE campus_name = '" + campusName + "'";
+		
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);
+		
+		if (rs.next()) {
+			return rs.getInt("campusID");
+		}
+		return 0;
 	}
 	
 	//by profile/studentID
@@ -173,6 +232,25 @@ public class DBUtils {
 		
 		while (rs.next()) {
 			al.add(rs.getString("course_name"));
+		}
+		
+		String[] result = new String[al.size()];
+		
+		for (int i = 0; i < result.length; i++) {
+			result[i] = al.get(i);
+		}
+		return result;
+	}
+	
+	public static String[] getCampusList(Connection conn) throws SQLException{
+		String sql = "SELECT campus_name FROM campus";
+		
+		ArrayList<String> al = new ArrayList<String>();
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);
+		
+		while (rs.next()) {
+			al.add(rs.getString("campus_name"));
 		}
 		
 		String[] result = new String[al.size()];
