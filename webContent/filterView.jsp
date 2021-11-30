@@ -34,15 +34,34 @@
   <br><br>
   <input type="submit" value="Submit">
 </form>
+<table>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Online</th>
+<th>View Profile</th>
+</tr>
  <%
 	RequestDispatcher rd2 = request.getRequestDispatcher("filter");
 	rd2.include(request, response);
+	rd2 = request.getRequestDispatcher("getNames");
+	rd2.include(request, response);
+	
 	int[] displayedProfiles = (int[])session.getAttribute("resultProfileID");
+	String[] displayedNames = (String[])session.getAttribute("displayNames");
+	String[] displayedOnline = (String[])session.getAttribute("onlineOptionsList");
+	
 	if (displayedProfiles != null){
-		for (int id : displayedProfiles){
-			out.println(id + "<br>");	
+		for (int i= 0; i < displayedProfiles.length; i++){
+			out.println("<tr>");
+			out.println("<td>" + displayedProfiles[i] + "</td>");
+			out.println("<td>" + displayedNames[i] + "</td>");
+			out.println("<td>" + displayedOnline[i] + "</td>");
+			out.println("<td><form action=\"viewProfile?profileID=" + displayedProfiles[i] + "\"><input type=\"submit\" value=\"View\"></form><td>");
+			out.println("</tr>");
 		}	
 	}  
 	%>
+	</table>
 </body>
 </html>

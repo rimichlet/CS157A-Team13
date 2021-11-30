@@ -2,13 +2,9 @@ package cs157aProject.model;
 
 public class Preference {
 
-	enum OnlineChoice{
-		YES, NO, BOTH
-	}
-	
 	private int profileID;
 	private String location;
-	private OnlineChoice onlineOpt;
+	private String onlineOpt;
 	
 	public int getProfileID() {
 		return profileID;
@@ -22,10 +18,10 @@ public class Preference {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public OnlineChoice getOnlineOpt() {
+	public String getOnlineOpt() {
 		return onlineOpt;
 	}
-	public void setOnlineOpt(OnlineChoice onlineOpt) {
+	public void setOnlineOpt(String onlineOpt) {
 		this.onlineOpt = onlineOpt;
 	}
 	

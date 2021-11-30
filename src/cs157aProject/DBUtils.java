@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import cs157aProject.model.Account;
 import cs157aProject.model.Course;
+import cs157aProject.model.Preference;
 import cs157aProject.model.StudentAccount;
 
 public class DBUtils {
@@ -105,6 +106,19 @@ public class DBUtils {
 		return 0;
 	}
 	
+	//find accountID from profileID
+	public static int findAccountID(Connection conn, int profileID) throws SQLException{
+		String sql = "SELECT accountID FROM has WHERE profileID = " + profileID;
+		
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);
+		
+		if (rs.next()) {
+			return rs.getInt("accountID");
+		}
+		return 0;
+	}
+	
 	//by courseID
 	public static String findCourseName(Connection conn, int courseID) throws SQLException{
 		String sql = "SELECT * FROM course WHERE courseID = " + courseID;
@@ -186,4 +200,20 @@ public class DBUtils {
 		return result;
 	}
 	
+	
+	public static Preference findPreference(Connection conn, int profileID) throws SQLException{
+		String sql = "SELECT * FROM preferences WHERE profileID = " + profileID;
+		
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);
+		
+		if (rs.next()) {
+			Preference p = new Preference();
+			p.setProfileID(profileID);
+			p.setLocation(rs.getString("location"));
+			p.setOnlineOpt(rs.getString("onlineOption"));
+			return p;
+		}
+		return null;
+	}
 }
