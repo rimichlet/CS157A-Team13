@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.nav {
+  /* box-sizing: border-box; */
+  height: 50px;
+  background: #5d4794;
+}
+
+label {
+  color: white;
+  font-size: 32px;
+  line-height: 50px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+  float: right;
+  padding: 0px 20px 0px 0px;
+}
+
+li {
+  display: inline;
+  line-height: 50px;
+  margin: 10px;
+}
+
+li a {
+  color: white;
+  padding: 5px;
+  text-decoration: none;
+}
+
+a.active,
+a:hover {
+  background: white;
+  color: red;
+}
+
+.field {
+  width: 40%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  margin-left: 28%;
+  margin-bottom: 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left: 10;
+}
+
+.login_field {
+  width: 40%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  margin-left: 28%;
+  margin-bottom: 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.loginbutton {
+  width: 41%;
+  background-color: #4caf50;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 28%;
+  margin-right: 25px;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.button{
+  background-color: #4CAF50; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.submitbutton {
+  width: 41%;
+  background-color: #4caf50;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 28%;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.btn-group button {
+  background-color: #04AA6D; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
