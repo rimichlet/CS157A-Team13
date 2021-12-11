@@ -2,24 +2,25 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="ISO-8859-1">
-	<title>Login</title>
-</head>
-<style>
-body{
-background-color: lightblue;
-text-align: center;
-}
-</style>
-<body>
-	<form action="login">
-		<label for="username">Username</label><br>
-		<input type="text" id="username" name="username"><br>
-		<label for="password">Password</label><br>
-		<input type="password" id="password" name="password"><br>
-		<input type="Submit" value="Log In"><br>
-	</form>
-</body>
-<a href="createAccount.jsp">Create Account</a>
+    <head>
+        <link rel="stylesheet" href="css/styles.css" />
+        <title>Login</title>
+    </head>
+
+    <header>
+        <%@include file="includes/navigation.jsp" %>
+    </header>
+    <body style="background-color: #114251;">
+        <form action="login" style="margin-top: 50px">
+            <label for="username" style="margin-left: 27%; color: WHITESMOKE">Username</label><br>
+            <input type="text" class="field" id="username" name="username"><br>
+            <label for="password" style="margin-left: 27%; color: WHITESMOKE">Password</label><br>
+            <input type="password" class="field" id="password" name="password"><br>
+            <input type="Submit" class="loginbutton" value="Log In"><br>
+        </form>
+    </body>
+    
+    <div>
+        <a href="createAccount.jsp" class="button"">Create Account</a>
+    </div>
 </html>
