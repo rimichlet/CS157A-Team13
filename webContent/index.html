@@ -2,16 +2,42 @@
 <html>
   <head>
      <meta charset="UTF-8">
+     <link rel="stylesheet" href="css/styles.css" />
+
      <title>Team 13 Project</title>
   </head>
+  <style>
+
+        body, html {
+        height: 100%;
+        margin: 0;
+      }
+
+      .bg {
+        /* The image for our for our homepage */
+        background-image: url("homepage.jpg");
+
+        /* Full height */
+        height: 99%; 
+
+        /* Center and scale the image */
+        background-position:center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
  
   <body>
- 
-     <h2>Welcome!</h2>
-     
-     <ul>
-        <li><a href="login.jsp">Login</a></li>
-     </ul>
+
+        
+        <div class="bg">
+          <a href="homepage.jsp" class="button">Home</a>
+          <a href="login.jsp" class="button">Login</a>
+          <a href="productList" class="button">Product  List</a>
+        
+        </div>
+
+       
      
   </body>
 </html>
