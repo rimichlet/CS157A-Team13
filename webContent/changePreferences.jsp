@@ -3,14 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Edit Preferences</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Edit Preferences</title>
 </head>
-<style>
-body{
-background-color: lightblue;
-}
-</style>
+<header>
+    <%@include file="includes/navigation.jsp" %>
+</header>
 <body>
 <form action="changePreferences" method="post">
 <table>
