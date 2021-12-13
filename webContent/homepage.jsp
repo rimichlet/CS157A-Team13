@@ -3,15 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="css/styles.css" />
 <title>Homepage</title>
 </head>
-<style>
-body{
-background-color: lightblue;
-text-align: center;
-}
-</style>
+<header>
+    <%@include file="includes/navigation.jsp" %>
+</header>
 <body>
 <%
 	if(session.getAttribute("user") == null){
