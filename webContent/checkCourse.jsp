@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-body{
-background-color: lightblue;
-}
-</style>
+<link rel="stylesheet" href="css/styles.css" />
+
 <title>Check Classes that You Enrolled</title>
 </head>
+<header>
+    <%@include file="includes/navigation.jsp" %>
+</header>
    <body> 
       <form action = "updateClasses" method = "POST">
       <p align="left" style="font-weight: bolder;">Choose Your Classes :
