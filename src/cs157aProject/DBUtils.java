@@ -28,6 +28,30 @@ public class DBUtils {
 		return null;
 	}
 	
+	public static Account findAdminUser(Connection conn, String username, String password) throws SQLException{
+		String sql = "SELECT * FROM account WHERE account.username = '" + username + "' AND password = '" + password + "'";
+		
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);
+		
+		if (rs.next()){
+			int id = rs.getInt("accountID");
+			Account user = new Account();
+			user.setAccountID(id);
+			user.setUsername(username);
+			user.setPassword(password);
+			sql = "SELECT * FROM adminaccount WHERE adminaccount.accountID = " + id;
+			rs = stmt.executeQuery(sql);
+			if (rs.next()) {
+				return user;
+			}
+			else {
+				return null;
+			}
+		}
+		return null;
+	}
+	
 	public static void createAccount(Connection conn, String username, String password) throws SQLException{
 		String sql = "SELECT max(accountID) AS maxID FROM account;";
 		Statement stmt = conn.createStatement();
@@ -400,6 +424,35 @@ public class DBUtils {
 		String sql = "UPDATE preferences SET onlineOption = '" + online + "', location = '" + location + "' WHERE profileID = " + profileID;
 		
 		Statement stmt = conn.createStatement();
+		stmt.executeUpdate(sql);
+	}
+	
+	public static void deleteProfile(Connection conn, int profileID) throws SQLException{
+		int accID = findAccountID(conn, profileID);
+		String sql = "DELETE FROM account WHERE accountID = " + accID;
+		
+		Statement stmt = conn.createStatement();
+		stmt.executeUpdate(sql);
+		
+		sql = "DELETE FROM belongsto WHERE accountID = " + accID;
+		stmt.executeUpdate(sql);
+		
+		sql = "DELETE FROM enrollment WHERE studentID = " + profileID;
+		stmt.executeUpdate(sql);
+		
+		sql = "DELETE FROM has WHERE accountID = " + accID;
+		stmt.executeUpdate(sql);
+		
+		sql = "DELETE FROM interestedin WHERE profileID = " + profileID;
+		stmt.executeUpdate(sql);
+		
+		sql = "DELETE FROM preferences WHERE profileID = " + profileID;
+		stmt.executeUpdate(sql);
+		
+		sql = "DELETE FROM profile WHERE profileID = " + profileID;
+		stmt.executeUpdate(sql);
+		
+		sql = "DELETE FROM studentaccount WHERE accountID = " + accID;
 		stmt.executeUpdate(sql);
 	}
 }
