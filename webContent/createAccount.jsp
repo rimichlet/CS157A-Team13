@@ -6,11 +6,9 @@
 <meta charset="ISO-8859-1">
 <title>Create Account</title>
 </head>
-<style>
-body{
-background-color: lightblue;
-}
-</style>
+<header>
+    <%@include file="includes/navigation.jsp" %>
+</header>
 <body>
 	<form action="createAccount" method="post">
 		<label for="username">Name</label><br>
