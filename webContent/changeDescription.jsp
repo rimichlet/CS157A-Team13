@@ -3,19 +3,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Change Description</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Change Description</title>
 </head>
-<style>
-body{
-background-color: lightblue;
-}
-</style>
-<body>
-<p>Edit Description</p>
-<form action="changeDescription" method="post">
-<p><input type="text" id="description" name="description"></p>
-<input type="submit" value="Confirm">
-</form>
-</body>
+<header>
+    <%@include file="includes/navigation.jsp" %>
+</header>
+    <body>
+    <p>Edit Description</p>
+    <form action="changeDescription" method="post">
+        <p><input type="text" id="description" name="description"></p>
+        <input type="submit" value="Confirm">
+    </form>
+    </body>
 </html>
