@@ -3,14 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+    <link rel="stylesheet" href="css/styles.css" />
 <title>Search for Students</title>
 </head>
-<style>
-body{
-background-color: lightblue;
-}
-</style>
+<header>
+    <%@include file="includes/navigation.jsp" %>
+</header>
 <body>
 <h1>Search for Students</h1>
 <a href="homepage.jsp">Home</a>
