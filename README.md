@@ -18,14 +18,18 @@ along with success in their academic goals.
 
 
 Hardware and Software used
+
 ● Hardware
 ○ Macbook Pro(13-inch, 2020, Two Thunderbolt 3 ports)
 ○ Asus Zephyrus G
+
 ● Software
 ○ macOS Big Sur Version 11.5.2
 ○ Windows 10 Version 10.0.19043
+
 RDBMS
 ● MySQL 8.0.26
+
 Application Languages
 ● Java Version “14.0.2” 2020-07-14
 ● JavaScript
