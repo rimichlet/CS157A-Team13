@@ -3,14 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="css/styles.css" />
 <title>View Profile</title>
 </head>
-<style>
-body{
-background-color: lightblue;
-}
-</style>
+<header>
+    <%@include file="includes/navigation.jsp" %>
+</header>
 <body>
 <h1>${viewProfileName}</h1>
 <p>${viewProfileDescription }</p>
