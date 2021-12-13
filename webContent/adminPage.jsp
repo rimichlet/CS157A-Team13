@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="css/styles.css" />
 <meta charset="ISO-8859-1">
 <title>Admin Homepage</title>
 </head>
