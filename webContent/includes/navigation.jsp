@@ -7,7 +7,7 @@
       <li><a href="login.jsp">Login</a></li>
     </ul>
     <ul class="navs">
-      <li><a href="index.html">Product list</a></li>
+      <li><a href="index.html">U R Not Alone</a></li>
     </ul>
 
 </nav>
