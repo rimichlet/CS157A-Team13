@@ -7,7 +7,7 @@
 .nav {
   /* box-sizing: border-box; */
   height: 50px;
-  background: #5d4794;
+  background: #009788;
 }
 
 label {
@@ -16,6 +16,10 @@ label {
   line-height: 50px;
   padding: 10px;
   font-weight: bold;
+}
+
+body{
+    background-color: lightblue;
 }
 
 ul {
